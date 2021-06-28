@@ -1,24 +1,46 @@
-import logo from './logo.svg';
+import React from 'react';
+import { Popover, Button, Typography, makeStyles } from '@material-ui/core';
+import SimplePopover from './components/Povoer';
 import './App.css';
 
+const useStyles = makeStyles((theme) => ({
+  typography: {
+    padding: theme.spacing(2),
+  },
+}));
+
 function App() {
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget)
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <SimplePopover />
+      <Button onClick={handleClick} variant="contained">click here</Button>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+      >
+
+      </Popover>
+      <Typography
+          className={classes.typography}
+      >
+        The content of the Popover.
+      </Typography>
+    </>
   );
 }
 
