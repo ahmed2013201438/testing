@@ -33,7 +33,7 @@ export default function SimplePopover() {
         color="primary"
         onClick={handleClick}
       >
-        Open Popover
+        Open Popover.
       </Button>
       <Popover
         id={id}
