@@ -26,14 +26,14 @@ export default function SimplePopover() {
   const id = open ? 'simple-popover' : undefined;
 
   return (
-      <>
+    <>
       <Button
         aria-describedby={id}
         variant="contained"
         color="primary"
         onClick={handleClick}
       >
-        Open Popover.
+        Open Popover..
       </Button>
       <Popover
         id={id}
@@ -49,11 +49,11 @@ export default function SimplePopover() {
           horizontal: 'center',
         }}
       >
-      <Typography
+        <Typography
           className={classes.typography}
-      >
-        The content of the Popover.
-      </Typography>
+        >
+          The content of the Popover.
+        </Typography>
       </Popover>
     </>
   );
